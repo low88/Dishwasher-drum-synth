@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>dishwasher</title>
+<meta name="theme-color" content="#0a1610">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="dishwasher">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous&family=Share+Tech+Mono&family=Archivo:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wall" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<main class="machine" id="machine">
+  <!-- control panel -->
+  <header class="panel">
+    <div class="panel-row">
+      <div class="badge" aria-label="dishwasher"><span>dish</span><b>washer</b></div>
+      <button class="lcd" id="lcd" aria-label="Tempo e stato">
+        <span class="lcd-bpm" id="lcdBpm">124.00</span>
+        <span class="lcd-side"><span id="lcdProg">ECO</span><span id="lcdPos">1.1</span></span>
+        <span class="lcd-bars" id="lcdBars"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      </button>
+    </div>
+    <div class="panel-row transport">
+      <button class="play" id="playBtn" aria-label="Avvia"><span></span></button>
+      <button class="enamel rec" id="recBtn" aria-pressed="false"><i class="led"></i>REG</button>
+      <div class="pats" id="pats" role="group" aria-label="Pattern"></div>
+    </div>
+    <div class="panel-row knobs-row">
+      <button class="enamel" id="progBtn"><i class="led on"></i>Programma</button>
+      <button class="enamel" id="tubBtn"><i class="led"></i>Vasca</button>
+      <button class="enamel" id="wearBtn" aria-pressed="false"><i class="led"></i>Usura</button>
+      <button class="enamel" id="tapBtn">Tap</button>
+    </div>
+    <svg class="drips" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0H400V6C380 6 372 8 368 20C366 28 360 28 359 20C357 9 340 7 300 7C270 7 262 9 258 26C256 36 249 36 248 26C246 10 220 7 180 7C150 7 141 9 138 15C136 19 131 19 130 15C128 9 100 7 60 7C40 7 33 9 31 22C30 31 24 31 23 22C21 9 10 6 0 6Z"/>
+    </svg>
+  </header>
+
+  <!-- rack -->
+  <section class="rack-wrap">
+    <div class="tools">
+      <div class="modes" id="modes" role="group" aria-label="Modifica step"></div>
+      <div class="pages" id="pages" role="group" aria-label="Pagina"></div>
+    </div>
+    <div class="rack" id="rack"></div>
+  </section>
+
+  <!-- editor -->
+  <section class="editor" id="editor">
+    <div class="ed-head">
+      <button class="ed-plate" id="edPlate" aria-label="Prova suono"></button>
+      <div class="ed-name">
+        <input id="edName" aria-label="Nome traccia" maxlength="14">
+        <small id="edRole"></small>
+      </div>
+      <div class="ed-acts">
+        <button class="enamel sm" id="muteBtn" aria-pressed="false">M</button>
+        <button class="enamel sm" id="soloBtn" aria-pressed="false">S</button>
+        <button class="enamel sm slime" id="lavaBtn">Lava</button>
+      </div>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="ed-body" id="edBody"></div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<section class="sheet" id="sheet" hidden>
+  <div class="sheet-box">
+    <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="x" id="sheetClose" aria-label="Chiudi">✕</button></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+</section>
+
+<script src="engine.js"></script>
+<script src="kit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
